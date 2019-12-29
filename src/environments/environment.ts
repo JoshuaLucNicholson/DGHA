@@ -7,13 +7,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDV4X5L5H93TbnjbVeziUdXk7okKnsIlD0",
-    authDomain: "dgha-prod.firebaseapp.com",
-    databaseURL: "https://dgha-prod.firebaseio.com",
-    projectId: "dgha-prod",
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
     storageBucket: "",
-    messagingSenderId: "188015812853",
-    appId: "1:188015812853:web:11d4260e4218e990cf25bc"
+    messagingSenderId: "",
+    appId: ""
   }
 };
 

@@ -6,7 +6,7 @@ import { OverlayService } from 'src/app/overlay.service';
 import { AuthService } from "../../auth/auth.service";
 import * as firebase from 'firebase';
 import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
+
 
 declare var google: any;
 interface PlaceData {

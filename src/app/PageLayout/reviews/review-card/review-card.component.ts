@@ -3,7 +3,6 @@ import { MapsAPILoader } from '@agm/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { OverlayService } from 'src/app/overlay.service';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 import { AuthService } from '../../../auth/auth.service';
 
 declare var google: any;
@@ -52,14 +51,12 @@ export class ReviewCardComponent implements OnInit {
 
   //getting place_id and establishment from MapsAPILoader
   constructor(private mapsAPILoader: MapsAPILoader, public db: AngularFireDatabase, private registerDialog: OverlayService, public authService: AuthService) {
-    //this.reviews = db.list('reviews').valueChanges();
-    //this.reviews = this.db.list('reviewLocationsID/' + 'ChIJdfj4NjyuEmsR_3_uTOgmN0U/userReviews' ).valueChanges();
 
     this.mapsAPILoader.load().then(() => {
       this.placeService = new google.maps.places.AutocompleteService();
       this.placeDetailsService = new google.maps.places.PlacesService(document.createElement('div'));
       this.placeServiceIsReady = true;
-      //this.reviews = this.db.list('reviewLocationsID/' + this.locationDetails[this.x].place_id ).valueChanges();
+
     });
   }
 
