@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey.css"; */
+
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+body {
+  --dir: ltr;
+  --fonSiz: 1em;
+  font: -apple-system-body
+}
+
+.overflows {
+  overflow-y: hidden;
+}
+
+p, .bodyText, .stateTitle {
+  font-size: var(--fonSiz);
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5 {
+  overflow-wrap: break-word;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=search] {
+  width: 100%;
+  padding: 2px 5px;
+}
+
+input[type=date] {
+  width: 100%;
+  padding: 4px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: helvetica;
+}
+
+input[type=number] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+div.form-group {
+  line-height: 1.5;
+  margin: auto;
+  width: 80%;
+  border: 3px solid rgb(0, 0, 0);
+  padding: 20px;
+}
+
+#btn-btn-group {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.bodytext, .formtext, .footertext, p, h1, h2, h3, h4, h5, ul, li, body {
+  font-family: Helvetica;
+  /*list-style-position: inside; #only necessary if centering text */
+}
+
+.footertext {
+  text-align: center;
+  color: rgb(160, 160, 160);
+}
+
+.bodyText, .dogInfo {
+  direction: var(--dir);
+  /* font-size: var(--fonSiz); */
+}
+
+.accessMenu {
+  position: fixed !important;
+  width: auto;
+  height: auto;
+  bottom: 5px;
+  left: 97%;
+  z-index: 1;
+}
+
+@media (max-width: 749px) {
+  .accessMenu {
+    left: 85%;
+  }
+}
+
+@media (min-width: 750px) {
+  .accessMenu {
+    left: 93%;
+  }
+}
+
+/* .accessMenu{
+    display: none;
+} */
+
+/* .fontDown{
+    float: right;
+}
+
+.fontUp, .fontDown{
+    position: fixed;
+    bottom: 0;
+} */

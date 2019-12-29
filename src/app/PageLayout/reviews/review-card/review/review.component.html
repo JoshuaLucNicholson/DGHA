@@ -1,0 +1,25 @@
+<h4 style="font-weight: bold;">{{review.fName}} {{trimName(review.lName)}} </h4>
+{{review.date}}
+<div style="font-weight: bold;">
+  <div fxFlex="50">
+    Amenities: {{review.ratingAmenities}}<br>
+    <app-stars [stars]="review.ratingAmenities"></app-stars>
+  </div>
+  <div fxFlex="50">
+    Customer Service: {{review.ratingCustomerService}}<br>
+    <app-stars [stars]="review.ratingCustomerService"></app-stars>
+  </div>
+</div>
+<div style="font-weight: bold;">
+  <div fxFlex="50">
+    Location: {{review.ratingLocation}}<br>
+    <app-stars [stars]="review.ratingLocation"></app-stars>
+  </div>
+  <div fxFlex="50">
+    Overall: {{review.ratingOverall}}<br>
+    <app-stars [stars]="review.ratingOverall"></app-stars>
+  </div>
+</div>
+<p class="textReviewBox">
+  {{review.textReview}}
+</p>

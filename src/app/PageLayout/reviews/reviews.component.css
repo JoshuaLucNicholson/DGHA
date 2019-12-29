@@ -1,0 +1,53 @@
+.floated {
+  float: left;
+  margin-right: 5px;
+}
+
+.home-page {
+  float: right;
+}
+
+.loginRegisterDiv {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 32px;
+}
+
+.topright {
+  position: absolute;
+  top: 120px;
+  right: 1px;
+  font-size: 18px;
+}
+
+.reviewCards {
+  margin: auto;
+  width: 90%;
+  padding: 1px;
+}
+
+.topright {
+  position: absolute;
+  top: 120px;
+  right: 1px;
+  font-size: 18px;
+}
+
+.showLocations {
+  bottom: 45px;
+  left: 220px;
+}
+
+#fix {
+  display: flex !important
+}
+
+.centre {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+#input {
+  width: 100%;
+}

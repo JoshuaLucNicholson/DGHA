@@ -1,0 +1,33 @@
+<div class="reviewCards" class="notranslate">
+  <mat-card>
+    <h4>
+        <div>{{locationDetail.description}}</div>
+    </h4>
+    <div style="display: inline-block;" [attr.aria.label]="'Overall Rating is' + ' ' + overallRatingValue">
+      <app-stars [stars]="overallRatingValue"></app-stars><label style="vertical-align: top; font-size: 16px; padding: 4px 0; padding-left: 4px;">({{overallRatingValue}})</label><br>
+    </div><br>
+
+    <button mat-raised-button class="addReview" id="addReview" color="primary" (click)="addReview()" [disabled]="!authService.loggedIn" aria-label="Add review">Add Review</button>
+    <button mat-raised-button class="viewReviews" color="primary" (click)="showReviewList()" aria-label="View Reviews">View Reviews</button>
+    <button mat-raised-button class="addReport" color="warn" (click)="addReport()" [disabled]="!authService.loggedIn" aria-label="Report location">Report</button>
+
+  </mat-card>
+  <div class="reviewsList" *ngIf="showList">
+    <mat-card>
+      <label>Current Reviews:</label>
+      <mat-card *ngFor="let review of reviews | async">
+        <app-review [review]="review"></app-review>
+      </mat-card>
+    </mat-card>
+  </div>
+  <div class="reviewCreate" *ngIf="showCreate">
+    <mat-card>
+      <app-add-review [locationDetail]="locationDetail"></app-add-review>
+    </mat-card>
+  </div>
+  <div class="reviewReport" *ngIf="showReport">
+    <mat-card>
+      <app-report [locationDetail]="locationDetail"></app-report>
+    </mat-card>
+  </div>
+</div>

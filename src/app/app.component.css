@@ -1,0 +1,53 @@
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  p {
+    line-height: 50px;
+  }
+}
+
+.fa {
+  padding: 10px;
+  font-size: 24px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-paypal {
+  background: #3B7BBF;
+  color: white;
+}

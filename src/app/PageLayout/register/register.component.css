@@ -1,0 +1,13 @@
+.name-group input[type=text] {
+    width: 100%;
+}
+
+.form-group{
+    background-color: #FFFCF9;
+}
+
+.overlay{
+    width: 100vw;
+    max-height: 80vh;
+    overflow-y: scroll;
+}

@@ -1,0 +1,352 @@
+<mat-card>
+  <div class="notranslate">
+    <!--for testing purposes, remove when added to reviews page-->
+    <!-- <button class="stupid" (click)="showRegisterOverlay()">Register</button>
+        <button class="stupid" (click)="showLoginOverlay()">Login</button> -->
+    <h1 class="title" style="font-weight: bold;">DGHA Membership Form</h1>
+  </div>
+  <div class="bodyText notranslate">
+    <p>
+      Membership of DGHA is in two categories:
+    </p>
+    <ol type="1">
+      <li>Full Membership ($20.00):<br>
+        Any Australian who is blind or vision impaired, and who is a dog guide Handler.
+      </li>
+      <li>Associate Membership ($10.00):<br>
+        Any other person who supports the work and purpose of DGHA.
+      </li>
+    </ol>
+    <p>
+      The following is an online membership form to enable new members to apply to join DGHA:<br><br>
+    </p>
+  </div>
+  <div class="formtext notranslate">
+    <div class="container">
+      <label for="membershipType">Membership Type:</label>
+      <br>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Full Member
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()" id="myForm">
+            <div class="form-group">
+              <label>Title</label>
+              <select aria-label="title" formControlName="title" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <div *ngIf="f.title.invalid && (f.title.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="f.title.errors.required">Title is required.</div>
+              </div>
+              <br>
+
+              <label>First Name</label>
+              <input aria-label="First name input" type="text" formControlName="fName" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.fName.errors }" />
+              <div *ngIf="f.fName.invalid && (f.fName.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="fName.errors.required">First is required.</div>
+                <div *ngIf="fName.errors.pattern">First name must be letters only.</div>
+              </div>
+              <br>
+              <label for="lName">Last Name</label><br>
+              <input aria-label="Last name input" type="text" formControlName="lName" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.lName.errors }" />
+              <div *ngIf="f.lName.invalid && (f.lName.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="lName.errors.required">Last is required.</div>
+                <div *ngIf="lName.errors.pattern">Last name must be letters only.</div>
+              </div>
+              <br>
+
+              <label for="DOB">Date of Birth</label><br>
+              <input aria-label="Date of birtch input" type="date" formControlName="DOB" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.DOB.errors }" />
+              <div *ngIf="f.DOB.invalid && (f.DOB.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="DOB.errors.required">Date of birth is required.</div>
+              </div>
+              <br>
+              <label for="postalAddress">Postal Address</label><br>
+              <input aria-label="Postal address input" type="text" formControlName="postalAddress" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.postalAddress.errors }" />
+              <div *ngIf="f.postalAddress.invalid && (f.postalAddress.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="postalAddress.errors.required">Postal address is required.</div>
+                <div *ngIf="postalAddress.errors.pattern">Postal address can only contain letters and numbers.</div>
+              </div>
+              <br>
+              <label for="suburb">Suburb</label><br>
+              <input aria-label="Suburb input" type="text" formControlName="suburb" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.suburb.errors }" />
+              <div *ngIf="f.suburb.invalid && (f.suburb.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="suburb.errors.required">Suburb is required.</div>
+                <div *ngIf="suburb.errors.pattern">Suburb must be letters only.</div>
+              </div>
+              <br>
+
+              <label>State</label>
+              <select aria-label="State input" formControlName="state" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                <option value="NSW">NSW</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="TAS">TAS</option>
+                <option value="VIC">VIC</option>
+                <option value="WA">WA</option>
+                <option value="ACT">ACT</option>
+                <option value="NT">NT</option>
+              </select>
+              <div *ngIf="f.state.invalid && (f.state.touched || submitted)" class="alert alert-danger">Select State
+              </div>
+              <br>
+
+              <label for="postcode">Post Code</label><br>
+              <input aria-label="Post code input" type="number" formControlName="postcode" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.postcode.errors }" />
+              <div *ngIf="f.postcode.invalid && (f.postcode.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="postcode.errors.required">Post code is required.</div>
+                <div *ngIf="postcode.errors.minlength">Post code must be 4 digits.</div>
+                <div *ngIf="postcode.errors.maxlength">Post code must be 4 digits.</div>
+                <div *ngIf="postcode.errors.pattern">Post code must be digits only.</div>
+              </div>
+              <br>
+              <label for="phoneNumber">Phone Number</label><br>
+              <input type="text" formControlName="phoneNumber" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }" />
+              <div *ngIf="f.phoneNumber.invalid && (f.phoneNumber.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="phoneNumber.errors.required"> Phone number is required.</div>
+                <div *ngIf="phoneNumber.errors.pattern">Phone number must be digits only.</div>
+                <div *ngIf="phoneNumber.errors.minlength">Phone number must be 10 digits.</div>
+                <div *ngIf="phoneNumber.errors.maxlength">Phone number must be 10 digits.</div>
+              </div>
+              <br>
+              <label for="email">Email</label><br>
+              <input aria-label="Email input" type="text" formControlName="email" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="f.email.invalid && (f.email.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="email.errors.required">Email address is required.</div>
+                <div *ngIf="email.errors.email">Email is invalid.</div>
+              </div>
+              <br>
+              <label for="training">What is your dog trained for? (If not applicable, enter N/A)</label><br>
+              <input aria-label="Training Input" type="text" formControlName="training" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.training.errors }" />
+              <div *ngIf="f.training.invalid && (f.training.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="training.errors.required">Details of your dogs training is required.</div>
+                <div *ngIf="training.errors.pattern">Training must be letters only.</div>
+              </div>
+              <br>
+              <label for="dogName">Dog Name</label><br>
+              <input aria-label="Dog name input" type="text" formControlName="dogName" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.dogName.errors }" />
+              <div *ngIf="f.dogName.invalid && (f.dogName.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="dogName.errors.required">Dog name is required.</div>
+                <div *ngIf="dogName.errors.pattern">Dog name must be letters only.</div>
+              </div>
+              <br>
+              <label for="dogBreed">Dog Breed</label><br>
+              <input aria-label="Dog breed input" type="text" formControlName="dogBreed" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.dogBreed.errors }" />
+              <div *ngIf="f.dogBreed.invalid && (f.dogBreed.touched || submitted)" class="alert alert-danger">
+                <div *ngIf="dogBreed.errors.required">Dog breed is required.</div>
+                <div *ngIf="dogBreed.errors.pattern">Dog breed must be letters only.</div>
+              </div>
+              <br>
+              <label for="trainingProvider">Training Provider</label><br>
+              <input aria-label="Training provider input" type="text" formControlName="trainingProvider" class="form-control" required
+                [ngClass]="{ 'is-invalid': submitted && f.trainingProvider.errors }" />
+              <div *ngIf="f.trainingProvider.invalid && (f.trainingProvider.touched || submitted)"
+                class="alert alert-danger">
+                <div *ngIf="f.trainingProvider.errors.required">Training provider is required.</div>
+                <div *ngIf="f.trainingProvider.errors.pattern">Training provider must be letters only.</div>
+              </div>
+              <br>
+              <label for="dogOtherDisability">If your dog is also trained to assist you with a disability other than blindness or vision impairment. Please indicate what the dog is trained for?</label><br>
+              <input aria-label="Dogs other disability training input" type="text" formControlName="dogOtherDisability" class="form-control"
+                [ngClass]="{ 'is-invalid': dogOtherDisability && f.dogOtherDisability.errors }" />
+              <div *ngIf="dogOtherDisability.invalid && dogOtherDisability.dirty" class="alert alert-danger">
+                <div *ngIf="f.dogOtherDisability.errors.pattern">Must be text only.</div>
+              </div>
+              <br>
+
+              <label class="workForOtherOrganisation">Do you work for a Dog Guide or other blindness
+                organisation?</label><br>
+              <div class="form-control">
+                <label class="radio-inline">
+                  <input aria-label="work for another organisation input" type="radio" formControlName="workForOtherOrganisation" id="IDO" value="Yes"
+                    name="workForOtherOrganisation" (click)="radioChoice = 1" /> Yes<br>
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" formControlName="workForOtherOrganisation" id="IDont" value="No"
+                    name="workForOtherOrganisation" (click)="radioChoice = 0" checked="No" /> No<br>
+                </label>
+                <div *ngIf="submitted && f.workForOtherOrganisation.errors" class="alert alert-danger">
+                  <div *ngIf="f.workForOtherOrganisation.errors.required">Text required.</div>
+                </div>
+              </div>
+
+              <div *ngIf="this.radioChoice == '1'">
+                <label for="organisation">If yes, name of dog guide or assistance dog
+                  provider, or other blindness organisation:</label><br>
+                <input type="text" formControlName="organisation" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.organisation.errors }" />
+                <div *ngIf="submitted && f.organisation.errors" class="alert alert-danger">
+                  <div *ngIf="f.organisation.errors.pattern">Text is required.</div>
+                </div>
+              </div>
+              <br>
+              <div *ngIf="this.radioChoice == '1'">
+                <label for="organisationPosition">Position or Title:</label><br>
+                <input type="text" formControlName="organisationPosition"
+                  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.organisationPosition.errors }" />
+                <div *ngIf="submitted && f.organisationPosition.errors" class="alert alert-danger">
+                  <div *ngIf="f.organisationPosition.errors.pattern">Text is required.</div>
+                </div>
+              </div>
+
+              <br>
+              <div class="text-center">
+                <button type="submit" form="myForm" value="submit">Register</button>
+              </div>
+            </div>
+          </form>
+
+        </mat-expansion-panel>
+
+        <br>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Associate Member
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form [formGroup]="myFormA" (ngSubmit)="onSubmitA()" id="myFormA">
+            <div class="form-group">
+              <label>Title</label>
+              <select aria-label="Select Title" formControlName="titleA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.titleA.errors }">
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <div *ngIf="A.titleA.invalid && (A.titleA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="A.titleA.errors.required">Title is required.</div>
+              </div>
+              <br>
+              <label>First Name</label>
+              <input aria-label="Fire name input" type="text" formControlName="fNameA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.fNameA.errors }" />
+              <div *ngIf="A.fNameA.invalid && (A.fNameA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="fNameA.errors.required">First is required.</div>
+                <div *ngIf="fNameA.errors.pattern">First name must be letters only.</div>
+              </div>
+              <br>
+              <label>Last Name</label>
+              <input aria-label="Last name input" type="text" formControlName="lNameA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.lNameA.errors }" />
+              <div *ngIf="A.lNameA.invalid && (A.lNameA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="lNameA.errors.required">Last name is required.</div>
+                <div *ngIf="lNameA.errors.pattern">Last name must be letters only.</div>
+              </div>
+              <br>
+              <label for="DOBA">Date of Birth</label><br>
+              <input aria-label="Date of birth input" type="date" formControlName="DOBA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.DOBA.errors }" />
+              <div *ngIf="A.DOBA.invalid && (A.DOBA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="DOBA.errors.required">Date of birth is required.</div>
+              </div>
+              <br>
+              <label for="postalAddressA">Postal Address</label><br>
+              <input aria-label="Postal address input" type="text" formControlName="postalAddressA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.postalAddressA.errors }" />
+              <div *ngIf="A.postalAddressA.invalid && (A.postalAddressA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="postalAddressA.errors.required">Postal address is required.</div>
+                <div *ngIf="postalAddressA.errors.pattern">Postal address can only contain letters and numbers.</div>
+              </div>
+              <br>
+              <label for="suburbA">Suburb</label><br>
+              <input aria-label="suburb input" type="text" formControlName="suburbA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.suburbA.errors }" />
+              <div *ngIf="A.suburbA.invalid && (A.suburbA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="suburbA.errors.required">Suburb is required.</div>
+                <div *ngIf="suburbA.errors.pattern">Suburb must be letters only.</div>
+              </div>
+              <br>
+
+              <label>State</label>
+              <select aria-label="Select State" formControlName="stateA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.stateA.errors }">
+                <option value="NSW">NSW</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="TAS">TAS</option>
+                <option value="VIC">VIC</option>
+                <option value="WA">WA</option>
+                <option value="ACT">ACT</option>
+                <option value="NT">NT</option>
+              </select>
+              <div *ngIf="A.stateA.invalid && (A.stateA.touched || submittedA)" class="alert alert-danger">Select State
+              </div>
+              <br>
+              <label for="postcodeA">Post Code</label><br>
+              <input aria-label="Post code Input" type="text" formControlName="postcodeA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.postcodeA.errors }" />
+              <div *ngIf="A.postcodeA.invalid && (A.postcodeA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="postcodeA.errors.required">Suburb is required.</div>
+                <div *ngIf="postcodeA.errors.pattern">Suburb must be letters only.</div>
+              </div>
+              <br>
+              <label for="phoneNumberA">Phone Number</label><br>
+              <input aria-label="Phone number input" type="text" formControlName="phoneNumberA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.phoneNumberA.errors }" />
+              <div *ngIf="A.phoneNumberA.invalid && (A.phoneNumberA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="phoneNumberA.errors.required">Phone number is required.</div>
+                <div *ngIf="phoneNumberA.errors.pattern">Phone number must be numbers only.</div>
+                <div *ngIf="phoneNumberA.errors.minlength">Phone number must be 10 digits.</div>
+                <div *ngIf="phoneNumbeAr.errors.maxlength">Phone number must be 10 digits.</div>
+              </div>
+              <br>
+              <label for="emailA">Email</label><br>
+              <input aria-label="Email input" type="text" formControlName="emailA" class="form-control" required
+                [ngClass]="{ 'is-invalid': submittedA && A.emailA.errors }" />
+              <div *ngIf="A.emailA.invalid && (A.emailA.touched || submittedA)" class="alert alert-danger">
+                <div *ngIf="emailA.errors.required">Email address is required.</div>
+                <div *ngIf="emailA.errors.email">Email is incorrectly formatted.</div>
+              </div>
+              <br>
+              <div class="text-center">
+                <button type="submit" form="myFormA" value="submit">Register</button>
+              </div>
+            </div>
+          </form>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
+  </div>
+  <h1 class="title">Payment</h1>
+  <div class="bodyText notranslate">
+    <p>
+      Once your membership application has been approved, you may use the link below to make your payment (via
+      PayPal).
+    </p>
+  </div>
+  <div style="text-align: center;">
+    <h2 *ngIf="paypalLoad" style="line-height: 10px">Paypal button is loading</h2>
+    <div id="paypal-checkout-btn"></div>
+  </div>
+</mat-card>
+
+<div class="notranslate">
+  <a class="laws" mat-raised-button color="primary" routerLink="/laws" routerLinkActive="active">Laws Page</a>
+  <a class="reviews" mat-raised-button color="primary" routerLink="/reviews" routerLinkActive="active">Reviews Page</a>
+  </div>

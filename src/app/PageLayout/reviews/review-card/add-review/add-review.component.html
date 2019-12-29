@@ -1,0 +1,83 @@
+<label class="header">Overall:</label>
+
+<div class="star">
+  <button aria-label="1 star rating button" mat-icon-button (click)="overallstarChange(1)" class="star1">
+    <mat-icon>{{ OverallRatingIsNew(1) }}</mat-icon>
+  </button>
+  <button aria-label="2 star rating button"mat-icon-button (click)="overallstarChange(2)" class="star1">
+    <mat-icon>{{ OverallRatingIsNew(2) }}</mat-icon>
+  </button>
+  <button aria-label="3 star rating button" mat-icon-button (click)="overallstarChange(3)" class="star1">
+    <mat-icon>{{ OverallRatingIsNew(3) }}</mat-icon>
+  </button>
+  <button  aria-label="4 star rating button" mat-icon-button (click)="overallstarChange(4)" class="star1">
+    <mat-icon>{{ OverallRatingIsNew(4) }}</mat-icon>
+  </button>
+  <button aria-label="5 star rating button" mat-icon-button (click)="overallstarChange(5)" class="star1">
+    <mat-icon>{{ OverallRatingIsNew(5) }}</mat-icon>
+  </button>
+</div>
+
+<label class="header">Location:</label>
+
+<div class="star">
+  <button aria-label="1 star rating button" mat-icon-button (click)="locationstarChange(1)" class="star1">
+    <mat-icon>{{ LocationRatingIsNew(1) }}</mat-icon>
+  </button>
+  <button aria-label="2 star rating button"mat-icon-button (click)="locationstarChange(2)" class="star1">
+    <mat-icon>{{ LocationRatingIsNew(2) }}</mat-icon>
+  </button>
+  <button aria-label="3 star rating button" mat-icon-button (click)="locationstarChange(3)" class="star1">
+    <mat-icon>{{ LocationRatingIsNew(3) }}</mat-icon>
+  </button>
+  <button  aria-label="4 star rating button" mat-icon-button (click)="locationstarChange(4)" class="star1">
+    <mat-icon>{{ LocationRatingIsNew(4) }}</mat-icon>
+  </button>
+  <button aria-label="5 star rating button" mat-icon-button (click)="locationstarChange(5)" class="star1">
+    <mat-icon>{{ LocationRatingIsNew(5) }}</mat-icon>
+  </button>
+</div>
+<label class="header">Amenities:</label>
+
+<div class="star">
+  <button aria-label="1 star rating button" mat-icon-button (click)="amenitiesstarChange(1)" class="star1">
+    <mat-icon>{{ AmenitiesRatingIsNew(1) }}</mat-icon>
+  </button>
+  <button aria-label="2 star rating button"mat-icon-button (click)="amenitiesstarChange(2)" class="star1">
+    <mat-icon>{{ AmenitiesRatingIsNew(2) }}</mat-icon>
+  </button>
+  <button aria-label="3 star rating button" mat-icon-button (click)="amenitiesstarChange(3)" class="star1">
+    <mat-icon>{{ AmenitiesRatingIsNew(3) }}</mat-icon>
+  </button>
+  <button  aria-label="4 star rating button" mat-icon-button (click)="amenitiesstarChange(4)" class="star1">
+    <mat-icon>{{ AmenitiesRatingIsNew(4) }}</mat-icon>
+  </button>
+  <button aria-label="5 star rating button" mat-icon-button (click)="amenitiesstarChange(5)" class="star1">
+    <mat-icon>{{ AmenitiesRatingIsNew(5) }}</mat-icon>
+  </button>
+</div>
+<label class="header">Customer Service:</label>
+
+<div class="star">
+  <button aria-label="1 star rating button" mat-icon-button (click)="customerServicestarChange(1)" class="star1">
+    <mat-icon>{{ CustomerServiceRatingIsNew(1) }}</mat-icon>
+  </button>
+  <button aria-label="2 star rating button" mat-icon-button (click)="customerServicestarChange(2)" class="star1">
+    <mat-icon>{{ CustomerServiceRatingIsNew(2) }}</mat-icon>
+  </button>
+  <button aria-label="3 star rating button" mat-icon-button (click)="customerServicestarChange(3)" class="star1">
+    <mat-icon>{{ CustomerServiceRatingIsNew(3) }}</mat-icon>
+  </button>
+  <button aria-label="4 star rating button" mat-icon-button (click)="customerServicestarChange(4)" class="star1">
+    <mat-icon>{{ CustomerServiceRatingIsNew(4) }}</mat-icon>
+  </button>
+  <button aria-label="5 star rating button" mat-icon-button (click)="customerServicestarChange(5)" class="star1">
+    <mat-icon>{{ CustomerServiceRatingIsNew(5) }}</mat-icon>
+  </button>
+</div><br>
+<label class="header">Comment:</label><br>
+<textarea style="width: 100%" rows="4" cols="50" name="comment" form="usrform" maxlength="144"
+  placeholder="Enter comment here." [(ngModel)]="commentValue"></textarea><br>
+<div style="text-align: center;">
+  <button mat-raised-button color="primary" (click)="onSubmit()" aria-label="Submit review">Submit</button>
+</div>

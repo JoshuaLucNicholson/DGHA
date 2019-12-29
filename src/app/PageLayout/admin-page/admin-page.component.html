@@ -1,0 +1,54 @@
+<button mat-raised-button class="logout" color="primary" (click)="logout()" *ngIf="authService.loggedIn">Logout</button>
+ <h3>Reports</h3>
+  <mat-card *ngFor="let report of reports | async ">
+    <app-report-card [report-card]="report"></app-report-card>
+  </mat-card>
+
+<h3>Full Member Forms</h3>
+  <mat-expansion-panel  *ngFor="let form of membershipFormsF | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{form.fName}} {{form.lName}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    Title: {{form.title}}<br>
+    First Name: {{form.fName}}<br>
+    Last Name: {{form.lName}}<br>
+    DOB: {{form.DOB}}<br>
+    Postal Address: {{form.postalAddress}}<br>
+    Suburb: {{form.suburb}}<br>
+    State: {{form.state}}<br>
+    PostCode: {{form.postcode}}<br>
+    Phone Number: {{form.phoneNumber}}<br>
+    Email: {{form.email}}<br>
+    Training: {{form.training}}<br>
+    Dog Name: {{form.dogName}}<br>
+    Dog Breed:{{form.dogBreed}}<br>
+    Training Provider: {{form.trainingProvider}}<br>
+    Dogs other Disabilities: {{form.dogOtherDisability}}<br>
+    Work for Another Organisation?: {{form.workForOtherOrganisation}}<br>
+    Organisation Name: {{form.organisation}}<br>
+    Postion: {{form.organisationPostition}}<br>
+  </mat-expansion-panel>
+
+  <h3>Associate Member Forms</h3>
+  <mat-expansion-panel  *ngFor="let form of membershipFormsA | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{form.fNameA}} {{form.lNameA}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    Title: {{form.titleA}}<br>
+    First Name: {{form.fNameA}}<br>
+    Last Name: {{form.lNameA}}<br>
+    DOB: {{form.DOBA}}<br>
+    Postal Address: {{form.postalAddressA}}<br>
+    Suburb: {{form.suburbA}}<br>
+    State: {{form.stateA}}<br>
+    PostCode: {{form.postcodeA}}<br>
+    Phone Number: {{form.phoneNumberA}}<br>
+    Email: {{form.emailA}}<br>
+
+  </mat-expansion-panel>

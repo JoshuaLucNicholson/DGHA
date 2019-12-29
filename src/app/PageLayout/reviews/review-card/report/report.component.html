@@ -1,0 +1,23 @@
+<div class="warningDiv" *ngIf="showWarning">
+  <p style="text-align: center;">Warning: The following is only for high level issues, such as refusal of entry, discrimination against guide dogs etc.<br>
+  By continuing, you agree to send information to DGHA to process the issue and take action on the reportee.</p><br>
+  <div style="text-align: center;"class="center">
+    <button mat-raised-button color="warn" id="continueButton" (click)="continueToReport()">Continue to Report</button>
+  </div>
+</div>
+
+<div class="reportDiv" *ngIf="showReportForm">
+  <h4 style="font-weight:bold">Common Issues:</h4>
+  <input aria-label="Rude or bad conduct check box" type="checkbox" name="rude" value="Rude/Bad Conduct" [(ngModel)]="rudeValue"> Rude/Bad Conduct<br>
+  <input aria-label="Denied entry check box" type="checkbox" name="denied" value="Denied Entry" [(ngModel)]="deniedValue"> Denied Entry<br>
+  <input aria-label="other issue check box" type="checkbox" name="other" value="Other" id="other" (click)="showOther()"> Other<br>
+  <label *ngIf="showOtherInput">Please state your other issue here:</label>
+  <textarea aria-label="other issue input " id="otherReportCategory"[(ngModel)]="otherCommentValue" *ngIf="showOtherInput" style="width: 100%" rows="1"></textarea><br>
+
+  <label aria-label="report comment input "class="header">Comment:</label><br>
+  <textarea style="width: 100%" rows="4" cols="50" name="comment" form="usrform" maxlength="144"
+    placeholder="Enter comment here." [(ngModel)]="commentValue"></textarea><br>
+  <div style="text-align: center;">
+    <button mat-raised-button color="primary" aria-label="Submit report button" (click)="sendReport()">Submit Report</button>
+  </div>
+</div>

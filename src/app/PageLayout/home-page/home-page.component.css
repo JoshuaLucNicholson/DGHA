@@ -1,0 +1,18 @@
+.bodyText{
+    line-height: 1.5;
+    margin: auto;
+    width: 90%;
+    border: none;
+    padding: 20px;
+}
+
+.title{
+    line-height: 1.5;
+    margin: auto;
+    width: 90%;
+    padding: 20px;
+}
+
+.assistance-dogs{
+    float: right;
+}

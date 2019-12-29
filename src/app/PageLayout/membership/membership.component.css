@@ -1,0 +1,31 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+  td {border: none}
+  
+  .footertext{
+    text-align: left;
+}
+
+.bodyText{
+  line-height: 1.5;
+  margin: auto;
+  width: 90%;
+  border: none;
+  padding: 20px;
+}
+
+.title{
+  margin: auto;
+  width: 90%;
+  padding: 20px;
+}
+
+.reviews{
+  float: right;
+}

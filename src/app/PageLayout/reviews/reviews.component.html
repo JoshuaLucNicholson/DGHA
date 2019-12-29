@@ -1,0 +1,33 @@
+<div style="min-height: 26em">
+  <div class="loginRegisterDiv notranslate">
+    <div class="topright">
+      <button mat-flat-button class="stupid" color="primary" (click)="showLoginOverlay()" *ngIf="!authService.loggedIn">Login</button>
+      <button mat-raised-button class="logout" color="primary" (click)="logout()" *ngIf="authService.loggedIn">Logout</button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div *ngIf="showWelcome">
+    <h4 style="text-align: center; font-weight: bold;">Welcome to the Reviews page. Type a location below to begin:</h4>
+  </div>
+  <div class="centre">
+    <div fxFlex="100" style="line-height: 2.25;">
+      <input type="search" (keydown.enter)="onKey($event)" placeholder="Enter a Location..." #search [(ngModel)]="locationSearchValue">
+    </div>
+    <div fxFlex="noshrink">
+      <button mat-icon-button class="search" (click)="onKey($event)" aria-label="Search location button"><mat-icon>search</mat-icon></button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div *ngIf="showLocations">
+    <app-review-card *ngFor="let location of locationDetailsObservable | async" [locationDetail]="location"></app-review-card>
+  </div><br>
+</div>
+
+<div class="notranslate">
+<a class="membership" mat-raised-button color="primary" routerLink="/membership" routerLinkActive="active">Membership Page</a>
+<a class="home-page" mat-raised-button color="primary" routerLink="/home-page" routerLinkActive="active">Home Page</a>
+</div>

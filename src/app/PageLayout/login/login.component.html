@@ -1,0 +1,31 @@
+<div class="form-group">
+  <button (click)="overlayService.Close()">X</button>
+  <div class="formtext">
+    <mat-card-title class="title">
+      <h1 style="font-weight: bold;">Login</h1>
+    </mat-card-title>
+  </div>
+
+  <label for="email">Email:</label><br>
+  <input type="text" class="form-control" id="email" required [(ngModel)]="emailValue"
+    pattern='^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$' name="email"
+    #email="ngModel">
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <div [hidden]="!email.errors.required">Email Address is required</div>
+    <div [hidden]="!email.errors.pattern">Invalid Email</div>
+  </div>
+
+  <label for="password">Password:</label><br>
+
+  <input type="password" class="form-control"  id="password" required
+    [(ngModel)]="passwordValue" name="password" #password="ngModel" (keydown.enter)="onSubmit();"><br>
+
+  <div style="text-align: center;">
+    <input type="button" class="btn btn-primary" value="Log in" (click)="onSubmit();">
+  </div>
+  <hr>
+  <div style="text-align: center;">
+    <a (click)="overlayService.Close()" routerLink="/register" routerLinkActive="active">Not currently a member? Click here to Sign-Up!</a><br><br>
+    <a role="button" (click)="forgotPasswordOnClick()">Forgot Password?</a>
+  </div>
+</div>

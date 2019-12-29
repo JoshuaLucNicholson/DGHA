@@ -1,0 +1,15 @@
+<h4> <b> Location:</b> {{report.locationDescription}}</h4>
+<h4><b>Review Status:</b> {{report.reviewed}}</h4><br>
+Date:  {{report.date}}<br>
+Issues:  {{report.p1}}, {{report.p2}}, {{report.p3}} <br>
+User Comment: {{report.comment}}
+
+<h4> <B>Admin Comments: </B></h4>
+<p *ngFor="let report of reportsComments | async ">
+  {{report.date}}:  {{report.adminComment}}
+</p>
+
+<input  aria-label="comment input"type=text [(ngModel)]="commentValue">
+<button mat-raised-button class="viewReviews" color="primary" (click)="addComment()">Add Comment</button>
+<button mat-raised-button class="viewReviews" color="primary" (click)="markReviewed()">Mark as Reviewed</button>
+<button mat-raised-button class="viewReviews" color="primary" (click)="deleteReport()">Delete</button>

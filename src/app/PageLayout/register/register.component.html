@@ -1,0 +1,84 @@
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']"
+  novalidate>
+  <div class="form-group">
+
+    <div class="formtext">
+      <mat-card-title class="title">
+        <h1 style="font-weight: bold;">Register</h1>
+      </mat-card-title>
+    </div>
+
+    <div class="name-group">
+      <div fxFlex="48">
+        <label for="fName">First Name:</label>
+        <input type="text" class="form-control"  id="fName" required [(ngModel)]="fNameValue"
+          pattern="^[a-zA-Z][\sa-zA-Z]*" name="fName" #fName="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && fName.invalid }">
+        <div *ngIf="f.submitted && fName.invalid" class="alert alert-danger">
+          <div [hidden]="!fName.errors.required">First Name is required</div>
+          <div [hidden]="!fName.errors.pattern">First Name must be Letters only!</div>
+        </div>
+      </div>
+
+      <div fxFlex></div>
+
+      <div fxFlex="48">
+        <label for="lName">Last Name:</label>
+        <input type="text" class="form-control" id="lName" required [(ngModel)]="lNameValue"
+          pattern="^[a-zA-Z][\sa-zA-Z]*" name="lName" #lName="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && lName.invalid }">
+        <div *ngIf="f.submitted && lName.invalid" class="alert alert-danger">
+          <div [hidden]="!lName.errors.required">Last Name is required</div>
+          <div [hidden]="!lName.errors.pattern">Last Name must be Letters only!</div>
+        </div>
+      </div>
+    </div>
+
+    <label for="email">Email:</label><br>
+    <input type="text" class="form-control" id="email" required [(ngModel)]="emailValue"
+      pattern='^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$' name="email"
+      #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email>
+    <div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+      <div [hidden]="!email.errors.required">Email Address is required</div>
+      <div [hidden]="!email.errors.pattern">Invalid Email</div>
+    </div>
+
+    <label for="phoneNumber">Phone Number:</label><br>
+    <input type="text" class="form-control"  id="phoneNumber" required minlength="10"
+      maxlength="10" [(ngModel)]="phoneNumberValue" name="phoneNumber" pattern="^04[0-9]{8}$" #phoneNumber="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && phoneNumber.invalid }" required phoneNumber>
+    <div *ngIf="f.submitted && phoneNumber.invalid" class="alert alert-danger">
+      <div [hidden]="!phoneNumber.errors.required">Phone Number is required</div>
+      <div [hidden]="!phoneNumber.errors.minlength">Phone Number cannot be less than 10 Digits</div>
+      <div [hidden]="!phoneNumber.errors.pattern">Phone Number must be Digits only and must start with 04</div>
+    </div>
+
+    <label for="password">Password</label><br>
+    <input type="text" class="form-control" id="password" required
+      [(ngModel)]="passwordValue" name="password" #password="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" minlength="6">
+    <div *ngIf="f.submitted && password.invalid" class="alert alert-danger">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+
+    <label for="confirmPassword">Re-enter Password</label><br>
+    <input type="text" class="form-control"  id="confirmPassword" required
+      [(ngModel)]="confirmPasswordValue" name="confirmPassword" appConfirmEqualValidator="password"
+      #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required>
+    <div *ngIf="f.submitted && confirmPassword.invalid" class="alert alert-danger">
+      <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+      <div *ngIf="!confirmPassword.errors?.mustMatch">Passwords must match</div>
+
+    </div>
+    <div style="text-align: center;">
+      <button class="btn btn-primary">Register</button>
+    </div>
+
+    <hr>
+    <div style="text-align: center;">
+      <a (click)="loginLink()">Already signed up? Click here to login!</a><br>
+    </div>
+  </div>
+</form>

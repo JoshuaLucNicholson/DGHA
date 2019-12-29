@@ -1,0 +1,28 @@
+<!-- Header -->
+<mat-toolbar>
+  <mat-toolbar-row style="height: 6em;">
+    <div fxFlex="initial" style="height: 6em;">
+      <img class="logo" style="height: 100%; padding-right: 10px;" src="assets/gdhaLogo.png" routerLink="/home-page" routerLinkActive="active" aria-label="Dog Guide Handlers Australia Logo">
+    </div>
+    <div class="notranslate" fxFlex="90">
+      <h1 style="font-weight: bold; white-space: normal;">Dog Guide Handlers Australia</h1>
+    </div>
+    <div fxFlex="noshrink">
+      <button mat-icon-button (click)="clicked.emit()"  aria-label="Navigation Menu" style="border-radius: 1px; border-width: 1px; border-style: solid;">
+        <mat-icon aria-label="Navigation Menu">dehaze</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-menu #appMenu="matMenu" class="matMenu " class="notranslate" aria-label="Accessibility Options">
+  <button mat-menu-item class="fontUp" (click)="fontSizeChange(1); onEvent($event)">Text +</button>
+  <button mat-menu-item class="fontDown" (click)="fontSizeChange(0); onEvent($event)">Text -</button>
+  <button mat-menu-item class="backToTop" (click)="scrollTop(); onEvent($event)">Back To Top</button>
+</mat-menu>
+<button mat-fab class="accessMenu" [matMenuTriggerFor]="appMenu" color="primary">
+  Access
+</button>
+
+<h1 class="title">{{pageTitle}}</h1>

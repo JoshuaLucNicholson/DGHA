@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Side Menu -->
+<mat-sidenav-container hasBackdrop="true">
+  <mat-sidenav #nav mode="over" position="end">
+    <mat-nav-list class="notranslate">
+
+      <a mat-list-item (click)="nav.close()">Close Menu</a>
+      <a mat-list-item routerLink="/home-page" routerLinkActive="active" (click)="nav.close()">Home Page</a>
+      <a mat-list-item routerLink="/assistance-dogs" routerLinkActive="active" (click)="nav.close()">Assistance Dogs</a>
+      <a mat-list-item routerLink="/laws" routerLinkActive="active" (click)="nav.close()">Laws</a>
+      <a mat-list-item routerLink="/membership" routerLinkActive="active" (click)="nav.close()">Membership</a>
+      <a mat-list-item routerLink="/reviews" routerLinkActive="active" (click)="nav.close()">Reviews</a>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header (clicked)="nav.toggle()"></app-header>
+    <router-outlet></router-outlet>
+    <hr>
+    <!-- Footer -->
+    <footer>
+      <div class="footertext notranslate">
+        <div>
+          <h5>Dog Guide Handlers Australia - App created by Swinburne in collaboration with DGHA.</h5>
+          <h5>Donate to us/Follow our Social Medias here:</h5>
+          <div class="links">
+            <p>
+              <a href="https://www.paypal.com/au/home" class="fa fa-paypal" aria-label="Donate Link"></a>
+              <a href="https://www.facebook.com/groups/DogGuideHandlersAustralia" class="fa fa-facebook"
+                aria-label="Facebook Link"></a>
+              <a href="https://twitter.com/DGHAustralia" class="fa fa-twitter" aria-label="Twitter Link"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
